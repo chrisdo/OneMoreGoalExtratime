@@ -27,6 +27,7 @@ import java.util.List;
 public class BetChampionActivity extends AppCompatActivity{
 
     String selectedChampion = null;
+    private int mSelectedItem;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -39,11 +40,13 @@ public class BetChampionActivity extends AppCompatActivity{
     //add the keyset, we translate it and also get the flag for the list
         teams.addAll(CountryLookup.COUNTRY_TABLE.keySet());
 
-        TeamArrayAdapter adapter = new TeamArrayAdapter(this, teams.toArray(new String[]{}));
+        final TeamArrayAdapter adapter = new TeamArrayAdapter(this, teams.toArray(new String[]{}));
         l.setAdapter(adapter);
         l.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                mSelectedItem = position;
+                
                 selectedChampion = teams.get(position);
                 ActionBar bar = getSupportActionBar();
                 if(bar != null){
@@ -51,6 +54,7 @@ public class BetChampionActivity extends AppCompatActivity{
                 }else{
                     setTitle("Dein Weltmeister: " + selectedChampion);
                 }
+                adapter.notifyDataSetChanged();
             }
         });
     }
@@ -97,6 +101,12 @@ public class BetChampionActivity extends AppCompatActivity{
              } else {
                  imageView.setImageResource(R.drawable.ok);
              }*/
+
+             if (position == mSelectedItem) {
+                 // set your color
+                 rowView.setBackgroundColor(getResources().getColor(R.color.colorAccent, null));
+             }
+
 
              return rowView;
          }
