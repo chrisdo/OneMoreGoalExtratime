@@ -22,6 +22,7 @@ import com.chrisdo.omg.extratime.data.StatsData;
 import com.chrisdo.omg.extratime.data.User;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class BetChampionActivity extends AppCompatActivity{
@@ -39,7 +40,7 @@ public class BetChampionActivity extends AppCompatActivity{
         final List<String> teams = new ArrayList<>();
     //add the keyset, we translate it and also get the flag for the list
         teams.addAll(CountryLookup.COUNTRY_TABLE.keySet());
-
+        Collections.sort(teams);
         final TeamArrayAdapter adapter = new TeamArrayAdapter(this, teams.toArray(new String[]{}));
         l.setAdapter(adapter);
         l.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -91,7 +92,8 @@ public class BetChampionActivity extends AppCompatActivity{
              View rowView = inflater.inflate(R.layout.bet_champion_row_layout, parent, false);
              TextView textView = (TextView) rowView.findViewById(R.id.champion_bet_label);
              ImageView imageView = (ImageView) rowView.findViewById(R.id.champion_bet_icon);
-             textView.setText(values[position]);
+             textView.setText(CountryLookup.COUNTRY_TABLE.get(values[position]));
+             imageView.setImageResource(CountryLookup.getResourceId(values[position], getContext()));
 
              //set the icon based on the country
              // change the icon for Windows and iPhone

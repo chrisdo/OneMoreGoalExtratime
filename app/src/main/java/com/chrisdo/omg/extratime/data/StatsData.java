@@ -4,6 +4,7 @@ import android.content.Context;
 import android.provider.ContactsContract;
 import android.util.Log;
 
+import com.chrisdo.omg.extratime.SetManOfTheTournamentActivity;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -118,6 +119,15 @@ public class StatsData implements ValueEventListener {
         }
 
         return true;
+
+    }
+
+    public void makeManOfTheTOurnamentTip(String s, Context context) {
+        String playername = User.getUsername(context);
+
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference ref = database.getReference("stats");
+        ref.child(playername).child("manOfTheTournament").setValue(s);
 
     }
 }

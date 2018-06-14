@@ -29,7 +29,7 @@ import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
-    public static final String[] SPRUECHE = new String[]{"Mach ihn rein, ", "Mach dich warm, ", "Ab unter die Dusche, ", "BLUTGRAETSCHE, "};
+    public static final String[] SPRUECHE = new String[]{"Mach ihn rein, ", "Mach dich warm, ", "Ab unter die Dusche, ", "Hauptsache Italien, ", "We have a grandios saison gespielt, "};
 Random random = new Random();
 
     Fragment fragment = null;
@@ -54,10 +54,7 @@ Random random = new Random();
                     switchFragment(fragment);
                     return true;
                case R.id.navigation_notifications:
-                    fragment = new DummyFragment();
-                    b = new Bundle();
-                    b.putString("dummyText", "wer tippte was");
-                    fragment.setArguments(b);
+                    fragment = new StatsFragment();
                     switchFragment(fragment);
                     return true;
             }

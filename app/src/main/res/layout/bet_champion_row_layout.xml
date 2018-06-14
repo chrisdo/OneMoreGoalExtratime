@@ -20,9 +20,12 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:layout_alignParentBottom="true"
+        android:textAppearance="?android:attr/textAppearanceLarge"
         android:layout_alignParentRight="true"
         android:layout_toRightOf="@id/champion_bet_icon"
         android:maxLines="1"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="25dp"
         android:text="Description"
         android:textAlignment="textStart"/>
 

@@ -88,7 +88,7 @@ FORMAT.setTimeZone(TimeZone.getTimeZone("UTC"));
 
 
    public Match(long id, String awayTeamName, String homeTeamName, int matchDay, String date,
-                Result score, Map<String,Bet> bets, String location, DatabaseReference ref){
+                Result score, Map<String,Bet> bets, String location, DatabaseReference ref, String status){
         this.AwayTeamName = awayTeamName;
         this.HomeTeamName = homeTeamName;
         this.Matchday = matchDay;
@@ -97,6 +97,7 @@ FORMAT.setTimeZone(TimeZone.getTimeZone("UTC"));
     this.bets = bets;
     this.Location = location;
         this.Date = parse(date);
+        this.Status = Status.valueOf(status.toUpperCase());
         this.ref = ref;
     }
 

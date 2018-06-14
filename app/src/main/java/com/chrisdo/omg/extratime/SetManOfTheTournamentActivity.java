@@ -8,23 +8,22 @@ import android.view.View;
 import android.widget.EditText;
 
 import com.chrisdo.omg.extratime.data.StatsData;
-import com.chrisdo.omg.extratime.data.User;
 
-public  class SetTopScorerActivity extends AppCompatActivity{
+public  class SetManOfTheTournamentActivity extends AppCompatActivity{
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_set_topscorer);
+        setContentView(R.layout.activity_set_manoftournament);
     }
 
 
-    public void setTopScorer(View view) {
-        EditText textBox = findViewById(R.id.topscorer);
+    public void setManOfTournament(View view) {
+        EditText textBox = findViewById(R.id.manoftournament);
 
         if(textBox.length() > 0){
-            StatsData.INSTANCE.makeTopscorerTip(textBox.getText().toString(),this);
-            Intent intent = new Intent(this, SetManOfTheTournamentActivity.class);
+            StatsData.INSTANCE.makeManOfTheTOurnamentTip(textBox.getText().toString(),this);
+            Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
             finish();
         }else{

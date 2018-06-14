@@ -44,7 +44,8 @@ GenericTypeIndicator<Map<String,Bet>> genericTypeBets = new GenericTypeIndicator
             Match m = new Match(match.child("id").getValue(Long.class),match.child("AwayTeamName").getValue(String.class),match.child("HomeTeamName").getValue(String.class),
                     match.child("Matchday").getValue(Integer.class),match.child("Date").getValue(String.class),
                     match.child("Result").getValue(Result.class), match.child("bets").getValue(genericTypeBets), match.child("Location").getValue(String.class),
-                    match.getRef());
+                    match.getRef(), match.child("Status").getValue(String.class));
+
             matches.add(m);
             Log.i("MATCH", m.toString());
         }
@@ -60,6 +61,31 @@ GenericTypeIndicator<Map<String,Bet>> genericTypeBets = new GenericTypeIndicator
 
     public Collection<Match> getMatches() {
         return new ArrayList<>(matches);
+    }
+
+
+    public Collection<Match> getFinishedMatches(){
+        if (matches == null){
+            return Collections.emptyList();
+        }
+        List<Match> result = new ArrayList<>();
+        for (Match m : getMatches()){
+            if(m.getStatus().equals(Match.Status.FINISHED)){
+                result.add(m);
+            }
+        }
+        Collections.sort(result, new Comparator<Match>() {
+
+            @Override
+            public int compare(Match o1, Match o2) {
+                if(o1.getDate().before(o2.getDate())){
+                    return -1;
+                }else if(o1.getDate().after(o2.getDate())){
+                    return 1;
+                }return 0;
+            }
+        });
+        return result;
     }
 
     public Collection<Match> getMatchesToBet(){
