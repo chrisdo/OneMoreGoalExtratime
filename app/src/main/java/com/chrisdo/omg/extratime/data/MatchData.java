@@ -70,7 +70,7 @@ GenericTypeIndicator<Map<String,Bet>> genericTypeBets = new GenericTypeIndicator
         }
         List<Match> result = new ArrayList<>();
         for (Match m : getMatches()){
-            if(m.getStatus().equals(Match.Status.FINISHED)){
+            if(m.getStatus().equals(Match.Status.FINISHED) || !m.canBet()){
                 result.add(m);
             }
         }

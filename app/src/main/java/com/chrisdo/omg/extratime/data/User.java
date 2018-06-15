@@ -74,4 +74,11 @@ public class User {
         this.Score = score;
     }
 
+    public void setTopScorer(String topScorer) {
+        TopScorer = topScorer;
+    }
+
+    public void setWorldChampion(String worldChampion) {
+        WorldChampion = worldChampion;
+    }
 }
