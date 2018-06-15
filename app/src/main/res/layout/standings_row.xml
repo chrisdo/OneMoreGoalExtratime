@@ -9,7 +9,7 @@
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:id="@+id/standings_row_place"
-        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="place"
         android:layout_weight="0.15"
         android:gravity="left"/>
@@ -18,19 +18,19 @@
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:id="@+id/standings_row_name"
-        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textAppearance="?android:attr/textAppearanceMedium"
         android:layout_marginLeft="3dp"
         android:text="player"
-        android:layout_weight="0.55"
+        android:layout_weight="0.50"
         android:gravity="left"/>
 
     <TextView
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:id="@+id/standings_row_stats"
-        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="1/2/3"
-        android:layout_weight="0.15"
+        android:layout_weight="0.2"
         android:gravity="center"/>
 
 
@@ -38,9 +38,9 @@
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:id="@+id/standings_row_points"
-        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="12"
-        android:layout_weight="0.14"
+        android:layout_weight="0.15"
         android:gravity="right"/>
 
 

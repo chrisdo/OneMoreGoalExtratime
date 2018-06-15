@@ -7,14 +7,14 @@ public class User {
     private static final String PREFERENCES_FILE = "extratime_user_pref";
     private static final String PREF_KEY_USERNAME = "name";
 
-    private String name;
+    private String Name;
 
 
-    private Score score;
+    private Score Score;
 
-    private String topScorer;
+    private String TopScorer;
 
-    private String worldChampion;
+    private String WorldChampion;
 
 
 
@@ -23,10 +23,10 @@ public class User {
     }
 
     public User(String name, Score score, String topScorer, String worldChampion){
-        this.name = name;
-        this.score = score;
-        this.topScorer = topScorer;
-        this.worldChampion = worldChampion;
+        this.Name = name;
+        this.Score = score;
+        this.TopScorer = topScorer;
+        this.WorldChampion = worldChampion;
 
     }
 
@@ -55,20 +55,23 @@ public class User {
 //    }
 
     public String getName(){
-        return this.name;
+        return this.Name;
     }
 
     public Score getScore() {
-        return this.score;
+        return this.Score;
     }
 
     public String getTopScorer() {
-        return this.topScorer;
+        return this.TopScorer;
     }
 
     public String getWorldChampion(){
-        return this.worldChampion;
+        return this.WorldChampion;
     }
 
+    public void setScore(Score score){
+        this.Score = score;
+    }
 
 }

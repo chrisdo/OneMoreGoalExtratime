@@ -61,12 +61,12 @@ public class StandingsFragment extends Fragment implements ValueEventListener {
             tvNumber.setText(String.valueOf(ctr++));
             tvName.setText(u.getName());
             tvPoints.setText(String.valueOf(u.getScore().getPoints()));
-            tvStats.setText(u.getScore().getCorrectBets()+"/"+u.getScore().getCorrectGoalRelations()+"/"+u.getScore().getCorrectTendencies());
-            if(ctr%2!=0){
+            tvStats.setText(u.getScore().getCorrectBets()+"/"+u.getScore().getCorrectGoalRelation()+"/"+u.getScore().getCorrectTendencies());
+           /* if(ctr%2!=0){
                 tableRow.setBackgroundColor(getResources().getColor(R.color.colorRowDark, null));
             }else{
                 tableRow.setBackgroundColor(getResources().getColor(R.color.colorRowLight, null));
-            }
+            }*/
             table.addView(tableRow);
         }
 
@@ -107,7 +107,7 @@ public class StandingsFragment extends Fragment implements ValueEventListener {
                     tvNumber.setText(String.valueOf(ctr++));
                     tvName.setText(u.getName());
                     tvPoints.setText(String.valueOf(u.getScore().getPoints()));
-                    tvStats.setText(u.getScore().getCorrectBets()+"/"+u.getScore().getCorrectGoalRelations()+"/"+u.getScore().getCorrectTendencies());
+                    tvStats.setText(u.getScore().getCorrectBets()+"/"+u.getScore().getCorrectGoalRelation()+"/"+u.getScore().getCorrectTendencies());
 
                     table.addView(tableRow);
                 }
